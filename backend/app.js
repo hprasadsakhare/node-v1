@@ -1,4 +1,4 @@
-// thsi is code using routing for http
+// thsi is code using routing for htt
 
 const http = require('http');
 

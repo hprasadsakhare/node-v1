@@ -1,2 +1,2 @@
 ### Start Node from Scratch 
-## to sharp our skills 
+## to sharp skills 
