@@ -6,21 +6,26 @@
     <title>Index Page</title>
 </head>
 <body>
-   <form action="">
+   <form action="/get-form-data" method="post"> 
     <input
         type="text"
+        name="username"
         placeholder="Enter username"
+
     >
     <input
-    type="text"
-    placeholder="Enter email"
+        type="text"
+        name="email"
+        placeholder="Enter email"
+        
     >
     <input
-    type="password"
-    placeholder="Enter password"
+        type="password"
+        name="password"
+        placeholder="Enter password"
     >
 
-    <button>submit form</button>
+    <button type="submit">Submit Form</button>
    </form>
 </body>
 </html>
