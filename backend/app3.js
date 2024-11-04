@@ -26,6 +26,9 @@ app.get('/profile', (req, res) => {
     res.end('profile page');
 });
 
+app.get('/register',(req, res) =>{
+     res.render('register')
+})
 
 //app.get('/get-form-data', (req, res) => {
 //    console.log(req.query); 
