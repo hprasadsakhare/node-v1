@@ -5,12 +5,9 @@ const dbConnection = require('./config/db')
 const userModel = require('./models/user')
 
 app.use(morgan('dev'));
-
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static("public"))
-
-
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -30,10 +27,42 @@ app.get('/register',(req, res) =>{
      res.render('register')
 })
 
-//app.get('/get-form-data', (req, res) => {
-//    console.log(req.query); 
-//    res.send('Data received');
-//  });
+app.post('/register',async (req, res) =>{
+
+    const {username, email, password} = req.body;
+     
+    const newUser = await userModel.create({
+        username: username,
+        email: email,
+        password: password
+    })
+    res.send(newUser);
+})
+
+app.get('/get-users',(req,res) =>{
+    userModel.findOne({
+        username: 'c'
+    }).then((users)=>{
+    res.send(users)
+    })
+})
+
+app.get('/update-user',async (req,res) =>{
+    await userModel.findOneAndUpdate({
+        username: 'a'
+    },{
+        email: "c@c.com"
+    })
+    res.send("user update")
+})
+
+app.get('/delete-user', async(req,res)=>{
+    await userModel.findOneAndDelete({
+        username: "a"
+    })
+    res.send("user delete")
+})
+
 
 app.post('/get-form-data', (req, res) => {
     console.log(req.body); 
