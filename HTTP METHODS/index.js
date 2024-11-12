@@ -5,10 +5,10 @@ const url = require("url");
 const myServer = http.createServer((req, res) => {
     if (req.url === "/favicon.ico") return res.end();
 
-    const log = `${Date.now()}: ${req.method} ${req.url} New Req Received\n`;
+    const log = `${Date.now()}: ${req.url} New Req Received\n`;
     const myUrl = url.parse(req.url, true);
 
-    console.log(myUrl);
+ 
 
     fs.appendFile('log.txt', log, (err) => {
         if (err) {
@@ -19,7 +19,7 @@ const myServer = http.createServer((req, res) => {
 
         switch (myUrl.pathname) {
             case '/':
-                res.end("HomePage");
+                if(req.method === 'GET')res.end('HomePage');
                 break;
                 
             case '/about':
@@ -31,6 +31,13 @@ const myServer = http.createServer((req, res) => {
                 const search = myUrl.query.search_query;
                 res.end("Here are your results for " + search);
                 break;
+
+            case '/signup':
+                if(req.method === "GET")res.end("This is signup page");
+                else if(req.method === "POST"){
+                    //DB Query
+                    res.end("Sucess");
+                }
 
             default:
                 res.statusCode = 404;
