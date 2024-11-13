@@ -33,13 +33,14 @@ const myServer = http.createServer((req, res) => {
                 res.end("Here are your results for " + search);
                 break;
 
-                
+
             case '/signup':
                 if(req.method === "GET")res.end("This is signup page");
                 else if(req.method === "POST"){
                     //DB Query
                     res.end("Sucess");
                 }
+                
 
             default:
                 res.statusCode = 404;
