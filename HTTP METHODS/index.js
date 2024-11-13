@@ -27,12 +27,11 @@ const myServer = http.createServer((req, res) => {
                 res.end(`Hi, ${username}`);
                 break;
 
-
+                
             case '/search':
                 const search = myUrl.query.search_query;
                 res.end("Here are your results for " + search);
                 break;
-
 
             case '/signup':
                 if(req.method === "GET")res.end("This is signup page");
@@ -40,7 +39,6 @@ const myServer = http.createServer((req, res) => {
                     //DB Query
                     res.end("Sucess");
                 }
-                
 
             default:
                 res.statusCode = 404;
