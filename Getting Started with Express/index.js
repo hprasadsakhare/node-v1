@@ -1,6 +1,13 @@
 const http = require("http");
 const fs = require("fs");
 const url = require("url");
+const express = require("express");
+
+const app = express();
+
+app.get('/',(reeq,res)=>{
+    return res.send("Hello From Home Page")
+});
 
 function myHandler(req, res) {
     if (req.url === "/favicon.ico") return res.end();
