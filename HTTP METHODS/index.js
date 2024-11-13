@@ -27,6 +27,7 @@ const myServer = http.createServer((req, res) => {
                 res.end(`Hi, ${username}`);
                 break;
 
+                
             case '/search':
                 const search = myUrl.query.search_query;
                 res.end("Here are your results for " + search);
