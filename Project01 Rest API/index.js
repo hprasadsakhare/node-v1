@@ -8,6 +8,10 @@ const PORT = 8000;
 //Middleware - Plugin
 app.use(express.urlencoded({extended: false}));
 
+app.use((req, res, next) => {
+    
+})
+
 // REST API
 app.get('/api/users', (req, res) => {
     return res.json(users);
