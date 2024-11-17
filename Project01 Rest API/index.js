@@ -10,6 +10,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.use((req, res, next) => {
     console.log("hello middleware 1");
+    return res.json({msg:"hello middleware 1"});
 });
 
 // REST API
