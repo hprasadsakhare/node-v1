@@ -9,8 +9,8 @@ const PORT = 8000;
 app.use(express.urlencoded({extended: false}));
 
 app.use((req, res, next) => {
-    console.log("hello middleware 1");
-    return res.json({msg:"hello middleware 1"});
+    console.log("hello from middleware 1");
+    next();
 });
 
 // REST API
