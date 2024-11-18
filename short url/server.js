@@ -9,8 +9,10 @@ connectToMongoDB('mongodb://localhost:27017/short-url')
     .then(() => console.log("MongoDB connected successfully"))
     .catch((error) => console.error("MongoDB connection error:", error));
 
+    
 app.use(express.json());
 app.use("/url", urlRoute);
+
 
 app.get('/:shortId', async (req, res) => {
     try {
