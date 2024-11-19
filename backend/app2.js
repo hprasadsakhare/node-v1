@@ -6,7 +6,6 @@ app.use(morgan('dev'))
 
 app.set('view engine','ejs')
 
-
 app.get('/',(req,res,next)=>{
     const a = 5;
     const b = 10;
@@ -15,7 +14,6 @@ app.get('/',(req,res,next)=>{
 } ,(req,res)=>{
     res.render('index')
 })
-
 app.get('/about',(req,res)=>{
     res.end('about page')
 })
