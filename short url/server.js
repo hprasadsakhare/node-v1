@@ -10,6 +10,7 @@ connectToMongoDB('mongodb://localhost:27017/short-url')
     .catch((error) => console.error("MongoDB connection error:", error));
 
 app.use(express.json());
+
 app.use("/url", urlRoute);
 
 app.get('/:shortId', async (req, res) => {
@@ -24,7 +25,7 @@ app.get('/:shortId', async (req, res) => {
         if (!entry) {
             return res.status(404).json({ error: "Short URL not found" });
         }
-        
+
 
         res.redirect(entry.redirectUrl);
     } catch (error) {
