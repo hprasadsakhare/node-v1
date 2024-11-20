@@ -24,6 +24,7 @@ app.get('/:shortId', async (req, res) => {
         if (!entry) {
             return res.status(404).json({ error: "Short URL not found" });
         }
+        
 
         res.redirect(entry.redirectUrl);
     } catch (error) {
