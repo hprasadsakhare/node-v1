@@ -1,9 +1,16 @@
 const {Client, GatewayIntentBits} = require('discord.js');
 
-const client = new Client({intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]});
+const client = new Client({
+    intents: [
+    GatewayIntentBits.Guilds, 
+    GatewayIntentBits.GuildMessages, 
+    GatewayIntentBits.MessageContent]});
 
 client.on('messageCreate', message =>{
-    console.log(message.content);
+    if (message.author.bot) return;
+    message.reply({
+        content: 'hello form bot',
+    });
 })
 
 client.login('your-token-here');
