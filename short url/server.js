@@ -13,6 +13,10 @@ app.use(express.json());
 
 app.use("/url", urlRoute);
 
+app.get('/test',(req,res)=>{
+    return res.end('<h1>hey from server</h1>');
+});
+
 app.get('/:shortId', async (req, res) => {
     try {
         const shortId = req.params.shortId;
