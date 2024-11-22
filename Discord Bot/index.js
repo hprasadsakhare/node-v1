@@ -13,4 +13,9 @@ client.on('messageCreate', message =>{
     });
 })
 
+client.on('interactionCreate', interaction => {
+    console.log(interaction);
+    interaction.reply("Pong!!");
+})
+
 client.login('your-token-here');
