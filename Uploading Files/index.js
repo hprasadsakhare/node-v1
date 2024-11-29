@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
     return res.render('homepage');
 });
 
+
 // Handle file upload
 app.post('/upload', upload.single('profileImage'), (req, res) => {
     if (!req.file) {
