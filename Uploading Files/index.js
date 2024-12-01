@@ -21,6 +21,8 @@ app.get('/', (req, res) => {
 });
 
 
+
+
 // Handle file upload
 app.post('/upload', upload.single('profileImage'), (req, res) => {
     if (!req.file) {
