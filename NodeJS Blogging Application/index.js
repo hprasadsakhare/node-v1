@@ -1,7 +1,7 @@
 const express = require('express');
 
 const app = express();
-cosnt po = 8000;
+cosnt PORT = 8000;
 
 
 app.set('view engine', 'ejs');
