@@ -39,6 +39,7 @@ const myServer = http.createServer((req, res) => {
                     //DB Query
                     res.end("Sucess");
                 }
+                // db qurey is end
 
             default:
                 res.statusCode = 404;

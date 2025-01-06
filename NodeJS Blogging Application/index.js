@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 cosnt PORT = 8000;
 
-
+// new code 
 app.set('view engine', 'ejs');
 app.set("views",path.resolve("./views"));
 
