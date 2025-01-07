@@ -15,6 +15,7 @@
 //         console.log(result);
 //     }
 // })
+// new code added
 
 const fs = require("fs");
 // fs.appendFileSync('./test.txt', new Date().toLocaleString());
