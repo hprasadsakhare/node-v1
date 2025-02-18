@@ -18,6 +18,8 @@ app.use((req, res, next) => {
     next();
 });
 
+
+
 // REST API
 app.get('/api/users', (req, res) => {
     return res.json(users);
