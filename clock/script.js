@@ -7,8 +7,6 @@ function showTime(){
     document.getElementById("time").innerText = time;
 }
 
-// additional function 
-
 let interval = setInterval(showTime,1000);
 
 button.addEventListener('click',() => {
