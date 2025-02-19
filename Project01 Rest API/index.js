@@ -6,6 +6,7 @@ const app = express();
 const PORT = 8000;
 
 // Middleware - Plugin
+
 app.use(express.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
@@ -17,7 +18,6 @@ app.use((req, res, next) => {
     console.log("hello from middleware 2");
     next();
 });
-
 
 
 // REST API
