@@ -53,7 +53,7 @@ app.route('/api/users/:id')
             return res.status(404).json({ status: "error", message: "User not found" });
         }
 
-        
+
         users[index] = { ...users[index], ...req.body }; // Update user details
         fs.writeFile('./MOCK_DATA.json', JSON.stringify(users, null, 2), (err) => {
             if (err) {
@@ -79,6 +79,7 @@ app.route('/api/users/:id')
         });
     });
 
+    
 // Add new user
 app.post('/api/users', (req, res) => {
     const body = req.body;
