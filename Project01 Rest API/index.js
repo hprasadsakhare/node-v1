@@ -5,8 +5,9 @@ const app = express();
 
 const PORT = 8000;
 
-// Middleware - Plugin
-app.use(express.urlencoded({ extended: false }));
+// Middleware - Plugins
+app.use(express.json()); // To parse JSON request body
+app.use(express.urlencoded({ extended: false })); // To parse URL-encoded body
 
 app.use((req, res, next) => {
     console.log("hello from middleware 1");
@@ -18,11 +19,14 @@ app.use((req, res, next) => {
     next();
 });
 
-// REST API
+// REST API Endpoints
+
+// Get all users
 app.get('/api/users', (req, res) => {
     return res.json(users);
 });
 
+// Render users in HTML
 app.get('/users', (req, res) => {
     const html = `
     <ul>
@@ -32,30 +36,64 @@ app.get('/users', (req, res) => {
     res.send(html);
 });
 
-// Fetch user by ID
+// Fetch user by ID, Update user, Delete user
 app.route('/api/users/:id')
     .get((req, res) => {
         const id = Number(req.params.id);
         const user = users.find((user) => user.id === id);
+        if (!user) {
+            return res.status(404).json({ status: "error", message: "User not found" });
+        }
         return res.json(user);
     })
     .put((req, res) => {
-        // edit user with id
-        res.json({ status: "pending" });
+        const id = Number(req.params.id);
+        const index = users.findIndex((user) => user.id === id);
+        
+        if (index === -1) {
+            return res.status(404).json({ status: "error", message: "User not found" });
+        }
+
+        users[index] = { ...users[index], ...req.body }; // Update user details
+        fs.writeFile('./MOCK_DATA.json', JSON.stringify(users, null, 2), (err) => {
+            if (err) {
+                return res.status(500).json({ status: "error", message: err.message });
+            }
+            res.json({ status: "success", user: users[index] });
+        });
     })
     .delete((req, res) => {
-        // delete user
-        res.json({ status: "pending" });
+        const id = Number(req.params.id);
+        const index = users.findIndex((user) => user.id === id);
+        
+        if (index === -1) {
+            return res.status(404).json({ status: "error", message: "User not found" });
+        }
+
+        users.splice(index, 1); // Remove user
+        fs.writeFile('./MOCK_DATA.json', JSON.stringify(users, null, 2), (err) => {
+            if (err) {
+                return res.status(500).json({ status: "error", message: err.message });
+            }
+            res.json({ status: "success", message: "User deleted" });
+        });
     });
 
+// Add new user
 app.post('/api/users', (req, res) => {
     const body = req.body;
-    users.push({ ...body, id: users.length + 1 });
-    fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err) => {
+    if (!body.first_name || !body.last_name || !body.email) {
+        return res.status(400).json({ status: "error", message: "Missing required fields" });
+    }
+
+    const newUser = { ...body, id: users.length + 1 };
+    users.push(newUser);
+
+    fs.writeFile('./MOCK_DATA.json', JSON.stringify(users, null, 2), (err) => {
         if (err) {
             return res.status(500).json({ status: "error", message: err.message });
         }
-        res.json({ status: "success", id: users.length });
+        res.status(201).json({ status: "success", user: newUser });
     });
 });
 
