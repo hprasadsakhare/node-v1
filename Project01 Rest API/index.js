@@ -19,7 +19,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// REST API Endpoints
 
 // Get all users
 app.get('/api/users', (req, res) => {
