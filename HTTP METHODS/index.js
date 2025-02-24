@@ -8,8 +8,6 @@ const myServer = http.createServer((req, res) => {
     const log = `${Date.now()}: ${req.url} New Req Received\n`;
     const myUrl = url.parse(req.url, true);
 
- 
-
     fs.appendFile('log.txt', log, (err) => {
         if (err) {
             console.error("Error writing to log file:", err);
