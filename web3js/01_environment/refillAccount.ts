@@ -31,3 +31,6 @@ const test = async () => {
 };
 
 test();
+
+
+//run the code :  node --loader ts-node/esm refillAccount.ts
