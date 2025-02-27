@@ -17,4 +17,4 @@ console.log("toWei", wei);
 
 console.log("fromWei", fromWei(wei, "ether"));
 
-// node --loader ts-node/esm utils.ts
+// run the code :  node --loader ts-node/esm utils.ts
