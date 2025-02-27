@@ -16,3 +16,5 @@ const wei = toWei(5.1234, "ether");
 console.log("toWei", wei);
 
 console.log("fromWei", fromWei(wei, "ether"));
+
+// node --loader ts-node/esm utils.ts
