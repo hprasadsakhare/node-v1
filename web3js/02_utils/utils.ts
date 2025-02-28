@@ -12,6 +12,7 @@ console.log("toBigInt", toBigInt(123));
 console.log("toBigInt", toBigInt("0x1232"));
 console.log("toBigInt", toBigInt(BigInt(22)));
 
+
 const wei = toWei(5.1234, "ether");
 console.log("toWei", wei);
 
