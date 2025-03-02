@@ -40,7 +40,6 @@ const test = async()=>{
   console.log('account index 1', web3.eth.accounts.wallet.get(1))
   console.log('account index 2', web3.eth.accounts.wallet.get(2))
   console.log('account index 3', web3.eth.accounts.wallet.get(3))
-
 }
 
 test().catch(console.error)
