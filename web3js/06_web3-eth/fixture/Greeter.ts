@@ -20,6 +20,7 @@ export const GreeterAbi = [
         stateMutability: 'nonpayable',
         type: 'constructor',
     },
+    
     {
         anonymous: false,
         inputs: [{ indexed: false, internalType: 'string', name: 'greeting', type: 'string' }],
@@ -27,7 +28,7 @@ export const GreeterAbi = [
         type: 'event',
     },
 
-    
+
     {
         anonymous: false,
         inputs: [
