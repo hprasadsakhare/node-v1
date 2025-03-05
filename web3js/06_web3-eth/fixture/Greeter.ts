@@ -26,6 +26,7 @@ export const GreeterAbi = [
         name: 'GREETING_CHANGED',
         type: 'event',
     },
+
     
     {
         anonymous: false,
