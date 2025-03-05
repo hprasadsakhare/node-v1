@@ -26,6 +26,7 @@ export const GreeterAbi = [
         name: 'GREETING_CHANGED',
         type: 'event',
     },
+    
     {
         anonymous: false,
         inputs: [
@@ -42,7 +43,7 @@ export const GreeterAbi = [
         stateMutability: 'view',
         type: 'function',
     },
-    
+
     { inputs: [], name: 'increment', outputs: [], stateMutability: 'nonpayable', type: 'function' },
     {
         inputs: [{ internalType: 'string', name: '_greeting', type: 'string' }],
