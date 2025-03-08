@@ -79,7 +79,6 @@ app.route('/api/users/:id')
         });
     });
 
-    
 // Add new user
 app.post('/api/users', (req, res) => {
     const body = req.body;
