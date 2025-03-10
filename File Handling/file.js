@@ -20,6 +20,7 @@
 const fs = require("fs");
 // fs.appendFileSync('./test.txt', new Date().toLocaleString());
 
+
 fs.appendFileSync("./test.txt",'Hey There \n');
 
 // fs.cpSync('./test.txt','./copy.txt');
