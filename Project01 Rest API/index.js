@@ -93,9 +93,10 @@ app.post('/api/users', (req, res) => {
         if (err) {
             return res.status(500).json({ status: "error", message: err.message });
         }
-        
+
         res.status(201).json({ status: "success", user: newUser });
     });
 });
+
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
