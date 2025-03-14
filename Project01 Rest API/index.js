@@ -88,12 +88,12 @@ app.post('/api/users', (req, res) => {
 
     const newUser = { ...body, id: users.length + 1 };
     users.push(newUser);
-
     
     fs.writeFile('./MOCK_DATA.json', JSON.stringify(users, null, 2), (err) => {
         if (err) {
             return res.status(500).json({ status: "error", message: err.message });
         }
+        
         res.status(201).json({ status: "success", user: newUser });
     });
 });
