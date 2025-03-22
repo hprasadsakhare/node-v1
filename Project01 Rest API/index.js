@@ -45,6 +45,8 @@ app.route('/api/users/:id')
         }
         return res.json(user);
     })
+
+    
     .put((req, res) => {
         const id = Number(req.params.id);
         const index = users.findIndex((user) => user.id === id);
