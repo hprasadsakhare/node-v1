@@ -59,8 +59,6 @@ app.route('/api/users/:id')
             if (err) {
                 return res.status(500).json({ status: "error", message: err.message });
             }
-
-            
             res.json({ status: "success", user: users[index] });
         });
     })
