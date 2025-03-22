@@ -52,8 +52,6 @@ app.route('/api/users/:id')
         if (index === -1) {
             return res.status(404).json({ status: "error", message: "User not found" });
         }
-
-
         users[index] = { ...users[index], ...req.body }; // Update user details
         fs.writeFile('./MOCK_DATA.json', JSON.stringify(users, null, 2), (err) => {
             if (err) {
