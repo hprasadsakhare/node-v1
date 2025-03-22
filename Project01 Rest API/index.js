@@ -85,7 +85,6 @@ app.post('/api/users', (req, res) => {
     if (!body.first_name || !body.last_name || !body.email) {
         return res.status(400).json({ status: "error", message: "Missing required fields" });
     }
-
     
     const newUser = { ...body, id: users.length + 1 };
     users.push(newUser);
