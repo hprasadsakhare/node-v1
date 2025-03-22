@@ -46,14 +46,16 @@ app.route('/api/users/:id')
         return res.json(user);
     })
 
-    
+
     .put((req, res) => {
         const id = Number(req.params.id);
         const index = users.findIndex((user) => user.id === id);
         
+
         if (index === -1) {
             return res.status(404).json({ status: "error", message: "User not found" });
         }
+        
         users[index] = { ...users[index], ...req.body }; // Update user details
         fs.writeFile('./MOCK_DATA.json', JSON.stringify(users, null, 2), (err) => {
             if (err) {
