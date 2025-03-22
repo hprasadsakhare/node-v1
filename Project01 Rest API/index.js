@@ -59,6 +59,8 @@ app.route('/api/users/:id')
             if (err) {
                 return res.status(500).json({ status: "error", message: err.message });
             }
+
+            
             res.json({ status: "success", user: users[index] });
         });
     })
@@ -70,7 +72,7 @@ app.route('/api/users/:id')
             return res.status(404).json({ status: "error", message: "User not found" });
         }
 
-        
+
         users.splice(index, 1); // Remove user
         fs.writeFile('./MOCK_DATA.json', JSON.stringify(users, null, 2), (err) => {
             if (err) {
