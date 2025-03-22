@@ -70,6 +70,7 @@ app.route('/api/users/:id')
             return res.status(404).json({ status: "error", message: "User not found" });
         }
 
+        
         users.splice(index, 1); // Remove user
         fs.writeFile('./MOCK_DATA.json', JSON.stringify(users, null, 2), (err) => {
             if (err) {
